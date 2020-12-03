@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1 v-text="sites"></h1>
+        <a v-bind:href = "link" v-bind:title="titulo" ><span v-html="site" /></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+
+            el: '#app',
+            data: {
+                sites: 'Lista de sites',
+                link: 'http://google.com',
+                titulo: 'Google',
+                site: 'Site do <br /> Google'
+            }            
+        })
+
+    </script>
+        
+</body>
+</html>

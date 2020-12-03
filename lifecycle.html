@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+    </div>
+
+    <script>
+
+        Vue.component('painel', {
+            data() {
+                return {
+                    titulo: 'Painel Notícias'
+                }
+            },
+            methods: {
+                alerteAlgumaCoisa() {
+                    this.titulo = "aletar alguma coisa";
+                }
+            },
+            template: `
+                <div>
+                    <h1>{{titulo}}</h1>
+                    <button @click="alerteAlgumaCoisa()">Alerte</button>
+                </div>
+                `
+        });
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                numero: 1
+            },
+            methods: {
+                atualizarQualquerCoisa(){
+                    this.numero += 1
+                },
+                destruir(){
+                    this.$destroy();
+                }
+            },
+            template: `<div>
+            <painel></painel>
+            <br />
+            {{numero}}
+            <button @click="atualizarQualquerCoisa()">Atualizar</button>
+            <br /><br />
+            <button @click="destruir()">Destruir</button>
+            </div>`,
+
+            // Primeiro método
+            beforeCreate(){
+                console.log("Antes de criar tudo...");
+            },
+            // Segundo método
+            created(){
+                console.log("...quanto já foi criado tudo");
+            },
+            // Terceito método
+            beforeMount(){
+                console.log("Antes de montar tudo...");
+            },
+            // Quarto método
+            mounted(){
+                console.log("...tudo montado!");
+            },
+            // Quinto método
+            beforeUpdate(){
+                console.log("Antes de atualizar qualquer coisa... o número é: " + this.numero);
+            },
+            // Sexto método
+            updated(){
+                console.log("...atualizado qualquer coisa... agora o número é: " + this.numero);
+            },
+            // Sétimo método
+            beforeDestroy(){
+                console.log("Antes de destruir...");
+            },
+            destroyed(){
+                console.log("...destruído!");
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

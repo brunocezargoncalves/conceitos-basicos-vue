@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <button onclick="imprimir()">
+        Imprimir fora da instancia
+    </button>
+
+    <br />
+
+    <div id="app1">
+        {{ nome }}
+    </div>
+
+    <br /><br />
+
+    <div id="app2">
+
+        <button @click="imprimir()">
+            Imprimir dentro da instancia
+        </button>
+
+        <br />
+
+        {{ nome }}
+    </div>
+
+    <script>
+
+        // Acessar fora da instancia
+        let mensagem = "Minhas aplicações";
+
+        function imprimir(){            
+            app1.nome = "Aplicação 01";            
+        }
+
+        const app1 = new Vue({
+
+            el: "#app1",
+            data: {
+                //nome: "Minha Aplicação 01"
+                nome: `${mensagem}`
+            },
+            methods: {
+            }
+        })
+
+        const app2 = new Vue({
+
+            el: "#app2",
+            data: {
+                //nome: "Minha Aplicação 02"
+                nome: `${mensagem}`
+            },
+            methods: {
+                imprimir(){
+                    this.nome = "Aplicação 02";
+                    app1.nome = "Aplicação 01";                
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+    </div>
+
+    <script>
+
+        Vue.component('painel', {
+            data() {
+                return {
+                    titulo: 'Painel Notícias'
+                }
+            },
+            methods: {
+                alerteAlgumaCoisa() {
+                    this.titulo = "alete";
+                }
+            },
+            template: `
+                <div>
+                    <h1>{{titulo}}</h1>
+                    <button @click="alerteAlgumaCoisa()">Alerte</button>
+                </div>
+                `
+        });
+
+        const app = new Vue({
+            el: "#app",
+            methods: {
+
+            },
+            data: {
+            },
+            methods: {
+            },
+            template: "<painel></painel>"
+        })
+
+    </script>
+
+</body>
+
+</html>

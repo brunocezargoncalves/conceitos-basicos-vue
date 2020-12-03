@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <button @click="vermelho()">Vermelho</button>
+        <button @click="verde()">Verde</button>
+        <button @click="incolor()">Incolor</button>
+
+        <br />
+
+        <p ref="paragrafo">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, ut ipsum. Sapiente dolor dignissimos
+            nihil ipsam officia minima iste, architecto veritatis voluptatibus incidunt aperiam facilis porro maiores
+            cumque velit animi.
+        </p>
+
+    </div>
+
+    <style>
+        .red {
+            background-color: red
+        }
+
+        .green {
+            background-color: green
+        }
+
+        .blue {
+            background-color: blue
+        }
+
+        .yellow {
+            background-color: yellow
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+
+            el: '#app',
+            data: {
+            },
+            methods: {
+                vermelho() {
+                    this.$refs.paragrafo.style.background = "red"
+                },
+                verde() {
+                    this.$refs.paragrafo.style.background = "green"
+                },
+                incolor() {
+                    this.$refs.paragrafo.style.background = ""
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

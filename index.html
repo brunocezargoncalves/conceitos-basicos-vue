@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{ msg }}</p>	meet.google.com/vwc-jegk-eww
+        <p>{{ isTrue ? 'Verdade' : 'Falso' }}</p>
+        <p>{{ frutas[0] }}</p>
+        <p>Aluno: {{ aluno.nome }}</p>
+        <p>{{ 1 + num1 }}</p>	meet.google.com/vwc-jegk-eww
+        <p>{{ fun1() }}</p>
+        <p>{{ metodo(1) }}</p>	meet.google.com/vwc-jegk-eww
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>       
+
+        new Vue({
+
+            el: '#app',
+            data: {
+                msg: 'Teste de mensagem',
+                isTrue: true,
+                frutas: ['Pera', 'Uva', 'Maça'],
+                aluno: { nome: 'Bruno' },
+                num1: 1,
+                fun1: function(){
+                    return 'Função teste'
+                },
+                fun2: () => {
+                    return 'Função teste 2'
+                }                               
+            },            
+            methods: {
+                metodo(indice){
+                    return 'Fruta: ' + this.frutas[indice]
+                }    
+            }
+            
+        })
+
+    </script>
+        
+</body>
+</html>
